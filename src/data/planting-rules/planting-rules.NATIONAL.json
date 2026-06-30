@@ -1,0 +1,62 @@
+{
+  "rulesetId": "PLANTING-NATIONAL",
+  "rulesetName": "국토교통부 「조경기준」 (전국 공통)",
+  "scope": "national",
+  "meta": {
+    "source": "「조경기준」 국토교통부고시",
+    "referenceUrl": "https://www.law.go.kr (국가법령정보센터, 행정규칙 「조경기준」)",
+    "note": "식재 정량 기준의 전국 공통 베이스. 지자체 건축조례는 이 기준을 준용하며, 조경 의무면적 비율만 지자체별로 별도 규정한다.",
+    "effectiveBasis": "국토교통부고시 「조경기준」",
+    "lastUpdatedInApp": "2026-06-30",
+    "valuesVerified": true,
+    "verificationNote": "국가법령정보센터 「조경기준」 본문과 대조 확인. 고시는 개정될 수 있으므로 production 반영 전 최신 고시 재확인 권장."
+  },
+  "plantingDensity": {
+    "_note": "조경면적 1㎡마다 식재해야 할 교목·관목 최소 수량(용도지역별). 단, 조경의무면적을 초과하여 설치한 부분에는 적용하지 않는다.",
+    "unit": "주/㎡",
+    "byUseZone": [
+      { "useZone": "상업지역", "minTreePerM2": 0.1, "minShrubPerM2": 1.0 },
+      { "useZone": "공업지역", "minTreePerM2": 0.3, "minShrubPerM2": 1.0 },
+      { "useZone": "주거지역", "minTreePerM2": 0.2, "minShrubPerM2": 1.0 },
+      { "useZone": "녹지지역", "minTreePerM2": 0.2, "minShrubPerM2": 1.0 }
+    ]
+  },
+  "plantingMandatoryAreaRatio": {
+    "_note": "식재의무면적은 지자체 조례가 정하는 조경의무면적의 50% 이상이어야 한다. (조경기준 제4조)",
+    "ratioOfLandscapeArea": 0.5
+  },
+  "speciesRatio": {
+    "evergreenMinRatio": {
+      "_note": "상록수 식재비율: 교목 및 관목 중 규정 수량의 20% 이상",
+      "value": 0.2,
+      "basis": "교목 및 관목 규정 수량"
+    },
+    "regionalSpeciesMinRatio": {
+      "_note": "지역에 따른 특성수종 식재비율: 규정 식재수량 중 교목의 10% 이상",
+      "value": 0.1,
+      "basis": "교목 규정 수량"
+    }
+  },
+  "treeMinSpec": {
+    "_note": "식재 교목 최소 규격(아래 중 하나 충족 + 수고 1.5m 이상)",
+    "options": [
+      "흉고직경(B) 5cm 이상",
+      "근원직경(R) 6cm 이상",
+      "수관폭(W) 0.8m 이상"
+    ],
+    "minHeightM": 1.5
+  },
+  "treeCountWeighting": {
+    "_note": "큰 수목 1주를 여러 주로 가중 산정하는 규칙",
+    "rules": [
+      {
+        "condition": "낙엽교목: 수고 4m 이상 & 흉고직경 12cm(또는 근원직경 15cm) 이상 / 상록교목: 수고 4m 이상 & 수관폭 2m 이상",
+        "countsAs": 2
+      },
+      {
+        "condition": "낙엽교목: 흉고직경 25cm(또는 근원직경 30cm) 이상 / 상록교목: 수관폭 5m 이상",
+        "countsAs": 8
+      }
+    ]
+  }
+}

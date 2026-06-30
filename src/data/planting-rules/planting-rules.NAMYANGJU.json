@@ -1,0 +1,33 @@
+{
+  "rulesetId": "PLANTING-NAMYANGJU",
+  "rulesetName": "남양주시 조경 의무면적 기준",
+  "scope": "municipality",
+  "baseRuleset": "PLANTING-NATIONAL",
+  "meta": {
+    "source": "「남양주시 건축 조례」 (시행 2024.12.30, 경기도남양주시조례 제2326호) / 「남양주시 도시계획 조례」",
+    "referenceUrl": "https://www.law.go.kr (자치법규 「남양주시 건축 조례」)",
+    "effectiveBasis": "남양주시 건축 조례 (2024.12.30 시행)",
+    "lastUpdatedInApp": "2026-06-30",
+    "valuesVerified": false,
+    "verificationNote": "남양주시 첫 시 단위 정밀 샘플. 아래 조경 의무면적 비율은 다수 지자체가 준용하는 표준 단계(연면적 2천㎡↑ 15% / 1천~2천 10% / 1천 미만 5%)와 남양주 도시계획조례에서 확인된 녹지지역 30%를 반영한 초안이며, 남양주시 건축 조례 별표 원문과 아직 직접 대조하지 않았다. production 반영 전 반드시 남양주시 건축 조례 별표에서 정확한 비율과 적용 조건을 확인해 valuesVerified를 true로 갱신할 것."
+  },
+  "landscapeAreaRatio": {
+    "_note": "조경 의무면적 = 대지면적 × 비율. 아래는 표준 단계 기반 초안 — 남양주 건축 조례 별표 확인 필요.",
+    "appliesFromLandSizeM2": 200,
+    "verified": false,
+    "rules": [
+      { "condition": "연면적 합계 2,000㎡ 이상", "ratioOfLandArea": 0.15, "verified": false },
+      { "condition": "연면적 합계 1,000㎡ 이상 2,000㎡ 미만", "ratioOfLandArea": 0.10, "verified": false },
+      { "condition": "연면적 합계 1,000㎡ 미만", "ratioOfLandArea": 0.05, "verified": false },
+      { "condition": "녹지지역 안의 건축물", "ratioOfLandArea": 0.30, "verified": false },
+      { "condition": "대지면적 200㎡ 이상 300㎡ 미만", "ratioOfLandArea": 0.05, "verified": false }
+    ]
+  },
+  "regionalSpecies": {
+    "_note": "지역특성수종 판정 참고용. 남양주시 시목 및 권장수종 목록 확인 후 채울 것.",
+    "cityTree": null,
+    "speciesList": [],
+    "verified": false,
+    "expandNote": "남양주시 시목·향토수종을 남양주시 공식 자료에서 확인해 입력할 것. 현재 미확정."
+  }
+}

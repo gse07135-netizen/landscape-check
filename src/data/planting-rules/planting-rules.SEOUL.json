@@ -1,0 +1,33 @@
+{
+  "rulesetId": "PLANTING-SEOUL",
+  "rulesetName": "서울특별시 조경 의무면적 기준",
+  "scope": "municipality",
+  "baseRuleset": "PLANTING-NATIONAL",
+  "meta": {
+    "source": "「서울특별시 건축 조례」 제24조(대지안의 조경)",
+    "referenceUrl": "https://www.law.go.kr (자치법규 「서울특별시 건축 조례」)",
+    "effectiveBasis": "서울특별시 건축 조례 (개정 2025.5.19 반영)",
+    "lastUpdatedInApp": "2026-06-30",
+    "valuesVerified": true,
+    "verificationNote": "조경 의무면적 비율은 서울특별시 건축 조례 제24조 본문과 대조 확인. 식재밀도·상록·지역특성수 비율 등 정량 기준은 PLANTING-NATIONAL(국토부 조경기준)을 따른다. 조례는 개정될 수 있으므로 최신본 재확인 권장."
+  },
+  "landscapeAreaRatio": {
+    "_note": "조경 의무면적 = 대지면적 × 비율. 면적 200㎡ 이상 대지에 적용.",
+    "appliesFromLandSizeM2": 200,
+    "rules": [
+      { "condition": "연면적 합계 2,000㎡ 이상", "ratioOfLandArea": 0.15 },
+      { "condition": "연면적 합계 1,000㎡ 이상 2,000㎡ 미만", "ratioOfLandArea": 0.10 },
+      { "condition": "연면적 합계 1,000㎡ 미만", "ratioOfLandArea": 0.05 },
+      { "condition": "자연녹지·보전녹지지역 안의 건축물", "ratioOfLandArea": 0.30 },
+      { "condition": "학교이적지 안의 건축물", "ratioOfLandArea": 0.30 },
+      { "condition": "대지면적 200㎡ 이상 300㎡ 미만", "ratioOfLandArea": 0.05 }
+    ]
+  },
+  "regionalSpecies": {
+    "_note": "지역특성수종 판정 참고용. 시목을 앵커로 두되, 실제 지역특성수 인정 범위는 서울시 권장수종 목록으로 확장 가능. 도구의 '지역특성수 여부'는 사용자 체크값으로 판정.",
+    "cityTree": "은행나무",
+    "speciesList": ["은행나무"],
+    "verified": true,
+    "expandNote": "서울시 권장·향토수종 목록을 확보하면 speciesList를 확장할 것."
+  }
+}

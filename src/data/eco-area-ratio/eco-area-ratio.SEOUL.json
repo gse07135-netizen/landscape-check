@@ -1,0 +1,175 @@
+{
+  "standardId": "SEOUL-2023",
+  "standardName": "서울특별시 생태면적률 운영지침",
+  "meta": {
+    "source": "서울특별시 「생태면적률 운영지침」 (2023.10 개정, 2023-11-20 시행)",
+    "referenceUrl": "https://urban.seoul.go.kr (서울도시계획포털 자료실)",
+    "crossCheckedAgainst": "한국조경학회지(서울시 운영지침의 기본 공간유형 가중치는 환경부 기준과 기본적으로 동일함을 확인) + 서울시 2023 개정 보도자료",
+    "effectiveDate": "2023-11-20",
+    "version": "2023.10",
+    "lastUpdatedInApp": "2026-06-30",
+    "valuesVerified": "partial",
+    "verificationNote": "기본 13개 공간유형 가중치는 환경부 기준과 동일하여 검증됨(verified:true). 단, 2023 개정으로 신설된 3개 유형(식생체류지·공중정원·보존수목)의 정확한 가중치는 공개 자료에 없어 미확정(weight:null, verified:false) 상태임. 반드시 서울도시계획포털 자료실의 운영지침 원문(2023.10)에서 해당 가중치를 확인해 채울 것. 목표 생태면적률(targetRatios)도 용도지역·사업유형별로 별도 규정되므로 원문 확인 후 입력.",
+    "revisionNotes2023": [
+      "신규 인정 공간유형 추가: 식생체류지, 공중정원",
+      "보존수목 가중치 신설 (기존 서식지 유지 수목 또는 대상지 내 이식 수목)",
+      "투수포장의 식재면적 비율 기준: 50% 이상 → 30% 이상으로 완화(환경부 기준과 정합)",
+      "전면투수포장 투수계수 기준: 0.1mm/sec → 0.5mm/sec로 상향",
+      "녹지 토심 기준을 국토부 조경기준에 맞춰 개정",
+      "복합용도 건축물 및 복수 용도지역 건축물의 산정기준 명시"
+    ]
+  },
+  "formula": {
+    "ecoAreaRatioPercent": "(전체 환산면적 / 전체 대상지 면적) × 100",
+    "convertedArea": "Σ(공간유형별 면적 × 가중치). 둘 이상의 공간유형이 복합 시공된 경우 각 가중치를 곱해 적용.",
+    "decimalPlaces": 2
+  },
+  "spaceTypes": [
+    {
+      "no": 1,
+      "code": "natural_green",
+      "name": "자연지반녹지",
+      "weight": 1.0,
+      "criteria": "자연지반에 자생하거나 조성된 녹지",
+      "verified": true
+    },
+    {
+      "no": 2,
+      "code": "water_permeable",
+      "name": "수공간 (투수기능)",
+      "weight": 1.0,
+      "criteria": "물순환 기능이 가능한 자연적인 수공간(바닥면이 투수)",
+      "verified": true
+    },
+    {
+      "no": 3,
+      "code": "water_sealed",
+      "name": "수공간 (차수)",
+      "weight": 0.7,
+      "criteria": "바닥이 차수처리되어 물순환 기능이 없는 수공간",
+      "verified": true
+    },
+    {
+      "no": 4,
+      "code": "artificial_green_over90",
+      "name": "인공지반녹지 (토심 ≥ 90cm)",
+      "weight": 0.7,
+      "criteria": "토심이 90cm 이상인 인공지반 상부 녹지 (토심 기준은 국토부 조경기준 준용)",
+      "verified": true
+    },
+    {
+      "no": 5,
+      "code": "rooftop_over20",
+      "name": "옥상녹화 (토심 ≥ 20cm)",
+      "weight": 0.6,
+      "criteria": "토심이 20cm 이상인 녹화시스템을 적용한 옥상",
+      "verified": true
+    },
+    {
+      "no": 6,
+      "code": "artificial_green_under90",
+      "name": "인공지반녹지 (토심 < 90cm)",
+      "weight": 0.5,
+      "criteria": "토심이 90cm 미만인 인공지반 상부 녹지",
+      "verified": true
+    },
+    {
+      "no": 7,
+      "code": "rooftop_under20",
+      "name": "옥상녹화 (토심 < 20cm)",
+      "weight": 0.5,
+      "criteria": "토심이 20cm 미만인 녹화시스템을 적용한 옥상",
+      "verified": true
+    },
+    {
+      "no": 8,
+      "code": "partial_paving",
+      "name": "부분포장",
+      "weight": 0.5,
+      "criteria": "일정 비율(2023 개정: 30% 이상) 이상의 식재면적을 가지는 포장",
+      "verified": true
+    },
+    {
+      "no": 9,
+      "code": "wall_green",
+      "name": "벽면녹화",
+      "weight": 0.4,
+      "criteria": "벽면이나 옹벽(담장)의 녹화 (벽면녹화면적 기준)",
+      "verified": true
+    },
+    {
+      "no": 10,
+      "code": "full_permeable_paving",
+      "name": "전면 투수포장",
+      "weight": 0.3,
+      "criteria": "빗물이 침투되나 식재가 없는 포장 (2023 개정: 투수계수 0.5mm/sec 이상)",
+      "verified": true
+    },
+    {
+      "no": 11,
+      "code": "gap_permeable_paving",
+      "name": "틈새 투수포장",
+      "weight": 0.2,
+      "criteria": "포장재의 틈새로 빗물이 침투되어 부분적으로 식재되는 포장",
+      "verified": true
+    },
+    {
+      "no": 12,
+      "code": "detention_linked_surface",
+      "name": "저류·침투시설 연계면",
+      "weight": 0.2,
+      "criteria": "물순환 기능을 갖는 저류·침투시설에 연계된 포장면",
+      "verified": true
+    },
+    {
+      "no": 13,
+      "code": "impervious_paving",
+      "name": "포장면",
+      "weight": 0.0,
+      "criteria": "빗물이 침투하지 않는 식재기능이 불가능한 포장",
+      "verified": true
+    },
+    {
+      "no": 14,
+      "code": "bioretention",
+      "name": "식생체류지",
+      "weight": null,
+      "criteria": "토양에 의한 여과, 생화학적 반응, 침투 및 저류 등의 방법으로 강우유출수를 조절하는 식생으로 덮인 소규모 저류시설 (2023 신설)",
+      "verified": false,
+      "note": "가중치 미확인 — 서울 운영지침(2023.10) 원문에서 확인 필요"
+    },
+    {
+      "no": 15,
+      "code": "sky_garden",
+      "name": "공중정원",
+      "weight": null,
+      "criteria": "2023 개정으로 신규 인정된 공간유형 (상세 정의·가중치는 원문 확인 필요)",
+      "verified": false,
+      "note": "정의 및 가중치 미확인 — 서울 운영지침(2023.10) 원문에서 확인 필요"
+    },
+    {
+      "no": 16,
+      "code": "preserved_tree",
+      "name": "보존수목",
+      "weight": null,
+      "criteria": "사업 대상지 내 기존의 서식지를 유지한 수목 또는 대상지 내에 이식하는 수목 (2023 신설)",
+      "verified": false,
+      "note": "가중치 미확인 — 서울 운영지침(2023.10) 원문에서 확인 필요. 면적이 아닌 수목 단위로 환산될 가능성이 있어 산정 방식도 함께 확인할 것."
+    }
+  ],
+  "specialRules": [
+    "투수성포장을 인공지반 상부에 설치하는 경우, 해당 인공지반녹지의 가중치(0.7 또는 0.5)를 곱해 재산정한다.",
+    "둘 이상의 공간유형을 복합적으로 시공한 경우 각 공간유형별 가중치를 곱한 수치를 적용한다.",
+    "복합용도 건축물 및 여러 용도지역에 걸친 건축물은 2023 개정 산정기준에 따라 구분 산정한다. (원문 확인 필요)"
+  ],
+  "targetRatios": {
+    "_note": "용도지역·사업유형별 목표 생태면적률은 서울 운영지침 및 도시관리계획 기준에 따라 별도 규정됨. 과거 공개된 예시값(전용·일반주거 30% / 준주거·상업 20% / 일반주택 660㎡미만 20% / 공동주택 660㎡이상 30% / 일반건축물 20% / 녹지지역 50%)은 변경되었을 수 있으므로, 운영지침(2023.10) 원문에서 확인 후 entries에 입력할 것. 아래 값은 미검증 참고용.",
+    "verified": false,
+    "entriesSchemaExample": {
+      "useZone": "용도지역(예: 전용주거지역)",
+      "projectType": "사업유형(예: 공동주택)",
+      "targetPercent": 0
+    },
+    "entries": []
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "standardId": "MOE-2016",
+  "standardName": "환경부 생태면적률 적용지침",
+  "meta": {
+    "source": "환경부 「생태면적률 적용 지침」 (2016 개정)",
+    "referenceUrl": "https://www.me.go.kr",
+    "crossCheckedAgainst": "한국교육녹색환경연구원 녹색건축인증 8.2.1 생태면적률 항목 (환경부 적용지침 인용)",
+    "effectiveDate": "2016-07-01",
+    "version": "2016.07",
+    "lastUpdatedInApp": "2026-06-30",
+    "valuesVerified": true,
+    "verificationNote": "공간유형별 가중치 13종은 환경부 생태면적률 적용지침 및 녹색건축인증 기준과 대조하여 확인함. 단, targetRatios(목표 생태면적률)는 사업유형·용도지역별로 별도 고시되므로, 실제 적용 프로젝트의 협의 기준/지침에서 확인 후 입력할 것. 지침은 개정될 수 있으므로 production 반영 전 최신 원문 재확인 권장."
+  },
+  "formula": {
+    "ecoAreaRatioPercent": "(전체 환산면적 / 전체 대지면적) × 100",
+    "convertedArea": "Σ(공간유형별 면적 × 가중치)",
+    "decimalPlaces": 2
+  },
+  "spaceTypes": [
+    {
+      "no": 1,
+      "code": "natural_green",
+      "name": "자연지반녹지",
+      "weight": 1.0,
+      "criteria": "자연지반에 자생하거나 조성된 녹지"
+    },
+    {
+      "no": 2,
+      "code": "water_permeable",
+      "name": "수공간 (투수기능)",
+      "weight": 1.0,
+      "criteria": "물순환 기능이 가능한 자연적인 수공간(바닥면이 투수)"
+    },
+    {
+      "no": 3,
+      "code": "water_sealed",
+      "name": "수공간 (차수)",
+      "weight": 0.7,
+      "criteria": "바닥이 차수처리되어 물순환 기능이 없는 수공간"
+    },
+    {
+      "no": 4,
+      "code": "artificial_green_over90",
+      "name": "인공지반녹지 (토심 ≥ 90cm)",
+      "weight": 0.7,
+      "criteria": "토심이 90cm 이상인 인공지반 상부 녹지"
+    },
+    {
+      "no": 5,
+      "code": "rooftop_over20",
+      "name": "옥상녹화 (토심 ≥ 20cm)",
+      "weight": 0.6,
+      "criteria": "토심이 20cm 이상인 녹화시스템을 적용한 옥상"
+    },
+    {
+      "no": 6,
+      "code": "artificial_green_under90",
+      "name": "인공지반녹지 (토심 < 90cm)",
+      "weight": 0.5,
+      "criteria": "토심이 90cm 미만인 인공지반 상부 녹지"
+    },
+    {
+      "no": 7,
+      "code": "rooftop_under20",
+      "name": "옥상녹화 (토심 < 20cm)",
+      "weight": 0.5,
+      "criteria": "토심이 20cm 미만인 녹화시스템을 적용한 옥상"
+    },
+    {
+      "no": 8,
+      "code": "partial_paving",
+      "name": "부분포장",
+      "weight": 0.5,
+      "criteria": "50% 이상의 식재면적을 가지는 포장"
+    },
+    {
+      "no": 9,
+      "code": "wall_green",
+      "name": "벽면녹화",
+      "weight": 0.4,
+      "criteria": "벽면이나 옹벽(담장)의 녹화 (벽면녹화면적 기준)"
+    },
+    {
+      "no": 10,
+      "code": "full_permeable_paving",
+      "name": "전면 투수포장",
+      "weight": 0.3,
+      "criteria": "빗물이 침투되나 식재가 없는(불가능한) 포장"
+    },
+    {
+      "no": 11,
+      "code": "gap_permeable_paving",
+      "name": "틈새 투수포장",
+      "weight": 0.2,
+      "criteria": "포장재의 틈새로 빗물이 침투되어 부분적으로 식재되는 포장"
+    },
+    {
+      "no": 12,
+      "code": "detention_linked_surface",
+      "name": "저류·침투시설 연계면",
+      "weight": 0.2,
+      "criteria": "물순환 기능을 갖는 저류·침투시설에 연계된 포장면"
+    },
+    {
+      "no": 13,
+      "code": "impervious_paving",
+      "name": "포장면",
+      "weight": 0.0,
+      "criteria": "빗물이 침투하지 않는 식재기능이 불가능한 포장"
+    }
+  ],
+  "specialRules": [
+    "투수성포장을 인공지반 상부에 설치하는 경우, 해당 인공지반녹지의 가중치(0.7 또는 0.5)를 곱해 재산정한다."
+  ],
+  "targetRatios": {
+    "_note": "사업유형·용도지역별 목표 생태면적률은 환경영향평가 협의 기준에 따라 별도 설정됨(2016 개정 기준 최소 30~80% 범위). 프로젝트별로 공식 지침/협의내용에서 확인 후 entries에 입력. 아래는 입력 형식 예시이며 실제 값이 아님.",
+    "entriesSchemaExample": {
+      "useZone": "용도지역(예: 전용주거지역)",
+      "projectType": "사업유형(예: 공동주택)",
+      "targetPercent": 0
+    },
+    "entries": []
+  }
+}

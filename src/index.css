@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/*
+ * 디자인 토큰 — 저채도 업무용 톤.
+ * 적합=green(emerald), 부적합=red(rose). 핵심 지표는 큰 숫자로 강조.
+ * Tailwind v4 @theme 으로 정의하면 bg-surface, text-fit 등 유틸리티로 사용 가능.
+ */
+@theme {
+  /* 표면 / 배경 — 저채도 슬레이트 계열 (밝은 카드 ↔ 차분한 페이지 배경) */
+  --color-surface: oklch(99.2% 0.001 247);
+  --color-surface-2: oklch(97% 0.003 247);
+  --color-surface-3: oklch(94.5% 0.004 247); /* 표 헤더 등 옅은 채움 */
+  --color-border: oklch(90.5% 0.005 247);
+  --color-border-strong: oklch(85% 0.006 247); /* 합계행·강조 구분선 */
+
+  /* 잉크 3단계 — 제목 / 본문 / 캡션 */
+  --color-ink: oklch(24% 0.012 247);
+  --color-ink-muted: oklch(46% 0.012 247);
+  --color-ink-subtle: oklch(60% 0.01 247);
+
+  /* 상태 색 — 적합(녹150) / 부적합(빨25) / 보류(앰버78). hue 유지, 명도·채도만 정돈.
+     -strong: 소프트 배경 위 텍스트용(대비 강화) / 기본: 도트·아이콘 / -soft: 배경 */
+  --color-fit: oklch(60% 0.13 150);
+  --color-fit-strong: oklch(45% 0.11 150);
+  --color-fit-soft: oklch(95.5% 0.035 150);
+  --color-unfit: oklch(58% 0.18 25);
+  --color-unfit-strong: oklch(48% 0.17 25);
+  --color-unfit-soft: oklch(96% 0.03 25);
+  --color-pending: oklch(70% 0.11 78);
+  --color-pending-strong: oklch(50% 0.09 78);
+  --color-pending-soft: oklch(96.5% 0.045 82);
+
+  /* 강조(브랜드) — 차분한 청록 */
+  --color-brand: oklch(50% 0.08 230);
+  --color-brand-strong: oklch(42% 0.08 230);
+  --color-brand-soft: oklch(95% 0.022 230);
+
+  /* 카드 그림자 — 은은한 단일 표준 */
+  --shadow-card: 0 1px 2px oklch(25% 0.03 247 / 0.05), 0 1px 3px oklch(25% 0.03 247 / 0.04);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-surface-2);
+  color: var(--color-ink);
+  font-family: "Pretendard", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*
+ * 통합 리포트 PDF 내보내기 — window.print() 기반.
+ * 인쇄 시 화면 UI(헤더/탭/버튼)는 숨기고 리포트 영역만 출력한다.
+ */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  /* 카드 등 섹션이 페이지 경계에서 잘리지 않도록 */
+  .report-section {
+    break-inside: avoid;
+  }
+
+  /* 인쇄 시 그림자/배경 제거로 잉크 절약 + 가독성 */
+  .report-print-area * {
+    box-shadow: none !important;
+  }
+
+  @page {
+    margin: 14mm;
+  }
+}
