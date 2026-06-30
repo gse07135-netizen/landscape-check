@@ -15,7 +15,7 @@ interface StandardInfoBoxProps {
 
 export function StandardInfoBox({ standardName, meta, className }: StandardInfoBoxProps) {
   return (
-    <div className={cn('rounded-lg border border-border bg-surface-2 p-4', className)}>
+    <div className={cn('rounded-xl border border-border bg-surface-2 p-5', className)}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="text-xs font-medium text-ink-subtle">적용 기준</p>

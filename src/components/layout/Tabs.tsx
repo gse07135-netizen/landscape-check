@@ -32,9 +32,9 @@ export function Tabs({ active, onChange }: TabsProps) {
             aria-current={isActive ? 'page' : undefined}
             onClick={() => onChange(tab.key)}
             className={cn(
-              'rounded-md px-4 py-2 text-sm font-medium transition',
+              'rounded-lg px-4 py-2 text-sm font-medium transition',
               isActive
-                ? 'bg-brand text-white shadow-sm'
+                ? 'bg-brand-soft text-brand-strong'
                 : 'text-ink-muted hover:bg-surface-2 hover:text-ink',
             )}
           >

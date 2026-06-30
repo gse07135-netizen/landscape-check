@@ -37,7 +37,7 @@ export function BasicInfoTab() {
             <button
               type="button"
               onClick={reset}
-              className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+              className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
             >
               초기화
             </button>

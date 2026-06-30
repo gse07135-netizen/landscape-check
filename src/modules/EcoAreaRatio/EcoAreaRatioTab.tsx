@@ -76,14 +76,14 @@ export function EcoAreaRatioTab() {
                 <button
                   type="button"
                   onClick={addRow}
-                  className="rounded-md bg-brand px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90"
+                  className="rounded-lg bg-brand px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90"
                 >
                   + 행 추가
                 </button>
                 <button
                   type="button"
                   onClick={resetRows}
-                  className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+                  className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
                 >
                   초기화
                 </button>
@@ -98,7 +98,7 @@ export function EcoAreaRatioTab() {
               onRemoveRow={removeRow}
             />
             {!hasSiteArea && (
-              <p className="mt-3 rounded-md bg-pending-soft px-3 py-2 text-xs text-pending">
+              <p className="mt-3 rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending">
                 대지면적이 입력되지 않았습니다. 기본정보 탭에서 대지면적을 입력해야 생태면적률이
                 계산됩니다.
               </p>
@@ -127,7 +127,7 @@ export function EcoAreaRatioTab() {
             <button
               type="button"
               onClick={() => setShowPreview((v) => !v)}
-              className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+              className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
             >
               {showPreview ? '미리보기 숨기기' : '미리보기 보기'}
             </button>
@@ -135,7 +135,7 @@ export function EcoAreaRatioTab() {
               type="button"
               onClick={handleExport}
               disabled={!canExport || isExporting}
-              className="rounded-md bg-fit px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-fit px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {isExporting ? '내보내는 중…' : '엑셀 내보내기'}
             </button>
@@ -143,7 +143,7 @@ export function EcoAreaRatioTab() {
         }
       >
         {exportError && (
-          <p className="mb-3 rounded-md bg-unfit-soft px-3 py-2 text-xs text-unfit">{exportError}</p>
+          <p className="mb-3 rounded-lg bg-unfit-soft px-3 py-2 text-xs text-unfit">{exportError}</p>
         )}
         {showPreview ? (
           <EcoPreviewTable rows={tableRows} summary={summary} />

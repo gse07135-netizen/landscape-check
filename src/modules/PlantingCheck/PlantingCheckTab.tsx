@@ -152,14 +152,14 @@ export function PlantingCheckTab() {
                 <button
                   type="button"
                   onClick={addTree}
-                  className="rounded-md bg-brand px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90"
+                  className="rounded-lg bg-brand px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90"
                 >
                   + 행 추가
                 </button>
                 <button
                   type="button"
                   onClick={resetTrees}
-                  className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+                  className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
                 >
                   초기화
                 </button>
@@ -192,7 +192,7 @@ export function PlantingCheckTab() {
             <button
               type="button"
               onClick={() => setShowPreview((v) => !v)}
-              className="rounded-md border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
+              className="rounded-lg border border-border px-3 py-1.5 text-xs font-medium text-ink-muted transition hover:bg-surface-2 hover:text-ink"
             >
               {showPreview ? '미리보기 숨기기' : '미리보기 보기'}
             </button>
@@ -200,7 +200,7 @@ export function PlantingCheckTab() {
               type="button"
               onClick={handleExport}
               disabled={!canExport || isExporting}
-              className="rounded-md bg-fit px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
+              className="rounded-lg bg-fit px-3 py-1.5 text-xs font-medium text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {isExporting ? '내보내는 중…' : '엑셀 내보내기'}
             </button>
@@ -208,7 +208,7 @@ export function PlantingCheckTab() {
         }
       >
         {exportError && (
-          <p className="mb-3 rounded-md bg-unfit-soft px-3 py-2 text-xs text-unfit">{exportError}</p>
+          <p className="mb-3 rounded-lg bg-unfit-soft px-3 py-2 text-xs text-unfit">{exportError}</p>
         )}
         {showPreview ? (
           <PlantingPreviewTable rows={treeListRows} />

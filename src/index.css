@@ -6,37 +6,40 @@
  * Tailwind v4 @theme 으로 정의하면 bg-surface, text-fit 등 유틸리티로 사용 가능.
  */
 @theme {
-  /* 표면 / 배경 — 저채도 슬레이트 계열 (밝은 카드 ↔ 차분한 페이지 배경) */
-  --color-surface: oklch(99.2% 0.001 247);
-  --color-surface-2: oklch(97% 0.003 247);
-  --color-surface-3: oklch(94.5% 0.004 247); /* 표 헤더 등 옅은 채움 */
-  --color-border: oklch(90.5% 0.005 247);
-  --color-border-strong: oklch(85% 0.006 247); /* 합계행·강조 구분선 */
+  /* 표면 / 배경 — 세이지 그린이 살짝 감도는 뉴트럴(hue 150, 아주 낮은 채도).
+     카드는 거의 화이트로 밝게, 페이지 배경은 옅은 그린 틴트(레퍼런스 톤). */
+  --color-surface: oklch(99.3% 0.002 150);
+  --color-surface-2: oklch(97.2% 0.006 150);
+  --color-surface-3: oklch(94.8% 0.009 150); /* 표 헤더 등 옅은 채움 */
+  --color-border: oklch(91% 0.008 150);
+  --color-border-strong: oklch(86% 0.01 150); /* 합계행·강조 구분선 */
 
-  /* 잉크 3단계 — 제목 / 본문 / 캡션 */
-  --color-ink: oklch(24% 0.012 247);
-  --color-ink-muted: oklch(46% 0.012 247);
-  --color-ink-subtle: oklch(60% 0.01 247);
+  /* 잉크 3단계 — 제목 / 본문 / 캡션 (세이지 틴트 뉴트럴) */
+  --color-ink: oklch(24% 0.012 160);
+  --color-ink-muted: oklch(46% 0.012 160);
+  --color-ink-subtle: oklch(58% 0.011 160);
 
-  /* 상태 색 — 적합(녹150) / 부적합(빨25) / 보류(앰버78). hue 유지, 명도·채도만 정돈.
-     -strong: 소프트 배경 위 텍스트용(대비 강화) / 기본: 도트·아이콘 / -soft: 배경 */
-  --color-fit: oklch(60% 0.13 150);
-  --color-fit-strong: oklch(45% 0.11 150);
-  --color-fit-soft: oklch(95.5% 0.035 150);
+  /* 상태 색 — 적합(녹150) / 부적합(빨25) / 보류(주황70).
+     적합 녹색은 채도를 올려(0.16) 브랜드 세이지 그린과 선명히 구분.
+     -strong: 소프트 배경 위 텍스트용 / 기본: 도트·아이콘 / -soft: 배경 */
+  --color-fit: oklch(62% 0.16 150);
+  --color-fit-strong: oklch(46% 0.14 150);
+  --color-fit-soft: oklch(95% 0.045 150);
   --color-unfit: oklch(58% 0.18 25);
   --color-unfit-strong: oklch(48% 0.17 25);
   --color-unfit-soft: oklch(96% 0.03 25);
-  --color-pending: oklch(70% 0.11 78);
-  --color-pending-strong: oklch(50% 0.09 78);
-  --color-pending-soft: oklch(96.5% 0.045 82);
+  --color-pending: oklch(70% 0.12 70);
+  --color-pending-strong: oklch(50% 0.1 70);
+  --color-pending-soft: oklch(96.5% 0.05 75);
 
-  /* 강조(브랜드) — 차분한 청록 */
-  --color-brand: oklch(50% 0.08 230);
-  --color-brand-strong: oklch(42% 0.08 230);
-  --color-brand-soft: oklch(95% 0.022 230);
+  /* 강조(브랜드) — 레퍼런스의 깊고 채도 낮은 포레스트/세이지 그린(hue 165).
+     어둡고 차분해 "브랜드"로 읽히며, 선명한 적합 녹색(hue 150, 高채도)과 구분된다. */
+  --color-brand: oklch(45% 0.062 165);
+  --color-brand-strong: oklch(38% 0.06 165);
+  --color-brand-soft: oklch(95% 0.022 165);
 
-  /* 카드 그림자 — 은은한 단일 표준 */
-  --shadow-card: 0 1px 2px oklch(25% 0.03 247 / 0.05), 0 1px 3px oklch(25% 0.03 247 / 0.04);
+  /* 카드 그림자 — 더 절제된 은은한 표준 */
+  --shadow-card: 0 1px 2px oklch(30% 0.02 160 / 0.04), 0 1px 2px oklch(30% 0.02 160 / 0.03);
 }
 
 :root {

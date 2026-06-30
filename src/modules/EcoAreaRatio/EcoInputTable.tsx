@@ -30,7 +30,7 @@ export function EcoInputTable({
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b border-border-strong text-left text-xs font-medium text-ink-subtle">
+          <tr className="border-b border-border text-left text-xs font-medium text-ink-subtle">
             <th className="py-2.5 pr-3">공간 유형</th>
             <th className="w-28 py-2.5 pr-3 text-right">면적(㎡)</th>
             <th className="w-20 py-2.5 pr-3 text-right">가중치</th>

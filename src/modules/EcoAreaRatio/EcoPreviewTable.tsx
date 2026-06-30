@@ -25,28 +25,28 @@ export function EcoPreviewTable({ rows, summary }: EcoPreviewTableProps) {
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-sm">
           <thead>
-            <tr className="border-y border-border-strong bg-surface-3 text-left text-xs font-medium text-ink-subtle">
-              <th className="w-12 px-3 py-2.5">No</th>
-              <th className="px-3 py-2.5">공간유형</th>
-              <th className="px-3 py-2.5 text-right">면적(㎡)</th>
-              <th className="px-3 py-2.5 text-right">가중치</th>
-              <th className="px-3 py-2.5 text-right">환산면적(㎡)</th>
-              <th className="px-3 py-2.5">비고</th>
+            <tr className="border-b border-border bg-surface-3 text-left text-xs font-medium text-ink-subtle">
+              <th className="w-12 px-4 py-3">No</th>
+              <th className="px-4 py-3">공간유형</th>
+              <th className="px-4 py-3 text-right">면적(㎡)</th>
+              <th className="px-4 py-3 text-right">가중치</th>
+              <th className="px-4 py-3 text-right">환산면적(㎡)</th>
+              <th className="px-4 py-3">비고</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r.no} className="border-b border-border/60">
-                <td className="px-3 py-2 tabular-nums text-ink-muted">{r.no}</td>
-                <td className="px-3 py-2 text-ink">{r.name}</td>
-                <td className="px-3 py-2 text-right tabular-nums text-ink">{formatArea(r.area)}</td>
-                <td className="px-3 py-2 text-right tabular-nums text-ink-muted">
+              <tr key={r.no} className="border-b border-border/70">
+                <td className="px-4 py-3 tabular-nums text-ink-subtle">{r.no}</td>
+                <td className="px-4 py-3 text-ink">{r.name}</td>
+                <td className="px-4 py-3 text-right tabular-nums text-ink">{formatArea(r.area)}</td>
+                <td className="px-4 py-3 text-right tabular-nums text-ink-muted">
                   {formatWeight(r.weight)}
                 </td>
-                <td className="px-3 py-2 text-right tabular-nums font-medium text-ink">
+                <td className="px-4 py-3 text-right tabular-nums font-medium text-ink">
                   {r.remark ? '—' : formatArea(r.convertedArea)}
                 </td>
-                <td className="px-3 py-2">
+                <td className="px-4 py-3">
                   {r.remark && (
                     <span className="text-xs font-medium text-pending-strong">{r.remark}</span>
                   )}
@@ -54,24 +54,24 @@ export function EcoPreviewTable({ rows, summary }: EcoPreviewTableProps) {
               </tr>
             ))}
             {/* 합계 */}
-            <tr className="border-y-2 border-border-strong bg-surface-3 font-semibold">
-              <td className="px-3 py-2" />
-              <td className="px-3 py-2 text-ink">합계</td>
-              <td className="px-3 py-2 text-right tabular-nums text-ink">
+            <tr className="border-t-2 border-border-strong bg-surface-3 font-semibold">
+              <td className="px-4 py-3" />
+              <td className="px-4 py-3 text-ink">합계</td>
+              <td className="px-4 py-3 text-right tabular-nums text-ink">
                 {formatArea(summary.totalInputArea)}
               </td>
-              <td className="px-3 py-2" />
-              <td className="px-3 py-2 text-right tabular-nums text-ink">
+              <td className="px-4 py-3" />
+              <td className="px-4 py-3 text-right tabular-nums text-ink">
                 {formatArea(summary.totalConvertedArea)}
               </td>
-              <td className="px-3 py-2" />
+              <td className="px-4 py-3" />
             </tr>
           </tbody>
         </table>
       </div>
 
       {/* 요약 */}
-      <dl className="grid grid-cols-2 gap-x-6 gap-y-2 rounded-lg bg-surface-2 p-4 text-sm sm:grid-cols-3">
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-4 rounded-xl bg-surface-2 p-5 text-sm sm:grid-cols-3">
         <SummaryItem label="총 환산면적" value={`${formatArea(summary.totalConvertedArea)} ㎡`} />
         <SummaryItem label="대지면적" value={`${formatArea(summary.siteArea)} ㎡`} />
         <SummaryItem label="생태면적률" value={formatPercent(summary.ecoRatioPercent)} />

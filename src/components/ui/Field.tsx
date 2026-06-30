@@ -33,7 +33,7 @@ function FieldWrap({ label, htmlFor, required, hint, error, children }: FieldWra
 }
 
 const inputBase =
-  'h-9 w-full rounded-md border bg-surface px-3 text-sm text-ink ' +
+  'h-9 w-full rounded-lg border bg-surface px-3 text-sm text-ink ' +
   'placeholder:text-ink-subtle/60 outline-none transition ' +
   'focus:border-brand focus:ring-2 focus:ring-brand/25';
 

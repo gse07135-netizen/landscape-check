@@ -24,7 +24,7 @@ export function GlobalResetButton() {
     <button
       type="button"
       onClick={handleClick}
-      className="no-print rounded-md border border-unfit/40 px-3 py-1.5 text-xs font-medium text-unfit transition hover:bg-unfit-soft"
+      className="no-print rounded-lg border border-unfit/40 px-3 py-1.5 text-xs font-medium text-unfit transition hover:bg-unfit-soft"
     >
       전체 초기화
     </button>

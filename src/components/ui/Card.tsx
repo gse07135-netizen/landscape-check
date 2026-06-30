@@ -14,24 +14,24 @@ export function Card({ title, description, actions, children, className }: CardP
   return (
     <section
       className={cn(
-        'rounded-xl border border-border bg-surface shadow-card',
+        'rounded-2xl border border-border bg-surface shadow-card',
         className,
       )}
     >
       {(title || actions) && (
-        <header className="flex items-start justify-between gap-4 border-b border-border px-6 py-4">
+        <header className="flex items-start justify-between gap-4 border-b border-border px-6 py-5">
           <div className="min-w-0">
             {title && (
               <h2 className="text-sm font-semibold tracking-tight text-ink">{title}</h2>
             )}
             {description && (
-              <p className="mt-1 text-xs leading-relaxed text-ink-subtle">{description}</p>
+              <p className="mt-1.5 text-xs leading-relaxed text-ink-subtle">{description}</p>
             )}
           </div>
           {actions && <div className="shrink-0">{actions}</div>}
         </header>
       )}
-      <div className="px-6 py-5">{children}</div>
+      <div className="px-6 py-6">{children}</div>
     </section>
   );
 }

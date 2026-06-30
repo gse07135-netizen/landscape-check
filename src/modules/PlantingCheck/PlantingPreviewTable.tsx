@@ -23,40 +23,40 @@ export function PlantingPreviewTable({ rows }: PlantingPreviewTableProps) {
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-y border-border-strong bg-surface-3 text-left text-xs font-medium text-ink-subtle">
-            <th className="w-12 px-3 py-2.5">No</th>
-            <th className="px-3 py-2.5">수종명</th>
-            <th className="px-3 py-2.5">구분</th>
-            <th className="px-3 py-2.5">상록/낙엽</th>
-            <th className="px-3 py-2.5">규격</th>
-            <th className="px-3 py-2.5 text-right">수량</th>
-            <th className="px-3 py-2.5 text-center">지역특성수</th>
-            <th className="px-3 py-2.5">비고</th>
+          <tr className="border-b border-border bg-surface-3 text-left text-xs font-medium text-ink-subtle">
+            <th className="w-12 px-4 py-3">No</th>
+            <th className="px-4 py-3">수종명</th>
+            <th className="px-4 py-3">구분</th>
+            <th className="px-4 py-3">상록/낙엽</th>
+            <th className="px-4 py-3">규격</th>
+            <th className="px-4 py-3 text-right">수량</th>
+            <th className="px-4 py-3 text-center">지역특성수</th>
+            <th className="px-4 py-3">비고</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((r) => (
-            <tr key={r.no} className="border-b border-border/60">
-              <td className="px-3 py-2 tabular-nums text-ink-muted">{r.no}</td>
-              <td className="px-3 py-2 text-ink">{r.speciesName}</td>
-              <td className="px-3 py-2 text-ink">{r.category}</td>
-              <td className="px-3 py-2 text-ink">{r.leafType}</td>
-              <td className="px-3 py-2 text-ink-muted">{r.spec || '—'}</td>
-              <td className="px-3 py-2 text-right tabular-nums font-medium text-ink">
+            <tr key={r.no} className="border-b border-border/70">
+              <td className="px-4 py-3 tabular-nums text-ink-subtle">{r.no}</td>
+              <td className="px-4 py-3 text-ink">{r.speciesName}</td>
+              <td className="px-4 py-3 text-ink">{r.category}</td>
+              <td className="px-4 py-3 text-ink">{r.leafType}</td>
+              <td className="px-4 py-3 text-ink-muted">{r.spec || '—'}</td>
+              <td className="px-4 py-3 text-right tabular-nums font-medium text-ink">
                 {formatCount(r.quantity)}
               </td>
-              <td className="px-3 py-2 text-center">{r.isRegional ? 'O' : ''}</td>
-              <td className="px-3 py-2 text-xs text-ink-muted">{r.remark}</td>
+              <td className="px-4 py-3 text-center">{r.isRegional ? 'O' : ''}</td>
+              <td className="px-4 py-3 text-xs text-ink-muted">{r.remark}</td>
             </tr>
           ))}
-          <tr className="border-y-2 border-border-strong bg-surface-3 font-semibold">
-            <td className="px-3 py-2" />
-            <td className="px-3 py-2 text-ink">합계</td>
-            <td className="px-3 py-2" colSpan={3} />
-            <td className="px-3 py-2 text-right tabular-nums text-ink">
+          <tr className="border-t-2 border-border-strong bg-surface-3 font-semibold">
+            <td className="px-4 py-3" />
+            <td className="px-4 py-3 text-ink">합계</td>
+            <td className="px-4 py-3" colSpan={3} />
+            <td className="px-4 py-3 text-right tabular-nums text-ink">
               {formatCount(totalQuantity)}
             </td>
-            <td className="px-3 py-2" colSpan={2} />
+            <td className="px-4 py-3" colSpan={2} />
           </tr>
         </tbody>
       </table>

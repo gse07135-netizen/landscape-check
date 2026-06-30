@@ -16,7 +16,7 @@ export function PlantingCriteriaSummary({ criteria }: PlantingCriteriaSummaryPro
   return (
     <Card title="식재 법규 기준 요약" description="선택된 지자체·용도지역·연면적 기준 자동 산출">
       {!criteria.applies && (
-        <p className="mb-3 rounded-md bg-pending-soft px-3 py-2 text-xs text-pending-strong">
+        <p className="mb-3 rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending-strong">
           {criteria.landSize === null
             ? '대지면적을 기본정보 탭에서 입력하세요.'
             : `대지면적이 조경 의무 적용 하한(${formatArea(criteria.appliesFromLandSizeM2, 0)}㎡) 미만이라 조경 의무가 없습니다.`}
@@ -24,13 +24,13 @@ export function PlantingCriteriaSummary({ criteria }: PlantingCriteriaSummaryPro
       )}
 
       {criteria.applies && !criteria.density && (
-        <p className="mb-3 rounded-md bg-pending-soft px-3 py-2 text-xs text-pending-strong">
+        <p className="mb-3 rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending-strong">
           기본정보 탭에서 용도지역을 선택하면 식재밀도 기준이 적용됩니다.
         </p>
       )}
 
       {criteria.applies && !criteria.rule && (
-        <p className="mb-3 rounded-md bg-pending-soft px-3 py-2 text-xs text-pending-strong">
+        <p className="mb-3 rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending-strong">
           적용할 조경 의무면적 비율 조건을 선택하세요.
         </p>
       )}

@@ -77,14 +77,14 @@ export function EcoResultPanel({
         )}
 
         {result.status === 'fit' && (
-          <p className="rounded-md bg-fit-soft px-3 py-2 text-xs font-medium text-fit-strong">
+          <p className="rounded-lg bg-fit-soft px-3 py-2 text-xs font-medium text-fit-strong">
             목표 생태면적률을 충족합니다.
           </p>
         )}
 
         {/* 판정 보류 안내 */}
         {result.status === 'pending' && (
-          <p className="rounded-md bg-pending-soft px-3 py-2 text-xs text-pending-strong">
+          <p className="rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending-strong">
             {!hasSiteArea
               ? '대지면적을 기본정보 탭에서 입력하면 생태면적률이 계산됩니다.'
               : '목표 생태면적률을 입력하면 적합/부적합이 판정됩니다.'}
@@ -93,7 +93,7 @@ export function EcoResultPanel({
 
         {/* 미확정 가중치 경고 — 검증 필요는 앰버(보류) 톤으로 절제 */}
         {result.hasUnconfirmedRows && (
-          <p className="rounded-md bg-pending-soft px-3 py-2 text-xs text-pending-strong">
+          <p className="rounded-lg bg-pending-soft px-3 py-2 text-xs text-pending-strong">
             ⚠ 가중치가 미확정(검증 필요)인 공간유형이 입력되어 있어 총 환산면적에서 제외되었습니다.
             정확한 산정을 위해 해당 기준 원문에서 가중치를 확인하세요.
           </p>

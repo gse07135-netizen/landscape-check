@@ -24,7 +24,7 @@ export function TreeInputTable({ trees, canRemove, onUpdate, onRemove }: TreeInp
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="border-b border-border-strong text-left text-xs font-medium text-ink-subtle">
+          <tr className="border-b border-border text-left text-xs font-medium text-ink-subtle">
             <th className="py-2.5 pr-2">수종명</th>
             <th className="w-20 py-2.5 pr-2">구분</th>
             <th className="w-20 py-2.5 pr-2">상록/낙엽</th>
