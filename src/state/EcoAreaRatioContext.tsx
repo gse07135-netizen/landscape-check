@@ -21,6 +21,7 @@ function reviveRows(raw: unknown): EcoRow[] | null {
       id: typeof r.id === 'string' ? r.id : crypto.randomUUID(),
       code: typeof r.code === 'string' ? r.code : '',
       area: typeof r.area === 'number' ? r.area : null,
+      source: r.source === 'drawing' ? 'drawing' : undefined,
     };
   });
   return rows.length > 0 ? rows : [createRow()];
@@ -35,6 +36,12 @@ interface EcoAreaRatioContextValue {
   /** 사용자가 직접 입력하는 목표 생태면적률(%) */
   targetPercent: number | null;
   addRow: () => void;
+  /**
+   * 도면에서 온 행(source='drawing')을 교체한다.
+   * 기존 도면 행은 제거하고 새 도면 행을 넣어 중복 적용을 방지한다.
+   * 수동 입력 행(source 미지정)은 절대 건드리지 않는다.
+   */
+  replaceDrawingRows: (rows: EcoRow[]) => void;
   removeRow: (id: string) => void;
   updateRow: (id: string, patch: Partial<Omit<EcoRow, 'id'>>) => void;
   setTargetPercent: (value: number | null) => void;
@@ -63,6 +70,12 @@ export function EcoAreaRatioProvider({ children }: { children: ReactNode }) {
       rows,
       targetPercent,
       addRow: () => setRows((prev) => [...prev, createRow()]),
+      replaceDrawingRows: (newRows) =>
+        setRows((prev) => {
+          const manual = prev.filter((r) => r.source !== 'drawing');
+          const next = [...manual, ...newRows];
+          return next.length > 0 ? next : [createRow()];
+        }),
       removeRow: (id) =>
         setRows((prev) => (prev.length <= 1 ? prev : prev.filter((r) => r.id !== id))),
       updateRow: (id, patch) =>

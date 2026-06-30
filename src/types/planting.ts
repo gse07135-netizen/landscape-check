@@ -1,3 +1,5 @@
+import type { RowSource } from '@/types/common';
+
 /** 식재 법규 검토 도메인 타입 */
 
 /** 식재 기준이 구축된 지자체 식별자 — planting-rules.<ID>.json 과 매핑 */
@@ -36,4 +38,6 @@ export interface TreeRow {
   quantity: number | null;
   /** 지역특성수 여부 */
   isRegional: boolean;
+  /** 출처 — 도면 분석에서 추가된 행이면 'drawing' (미지정=직접 입력) */
+  source?: RowSource;
 }

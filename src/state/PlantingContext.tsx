@@ -57,6 +57,7 @@ function reviveTrees(raw: unknown): TreeRow[] | null {
       spec: typeof t.spec === 'string' ? t.spec : '',
       quantity: typeof t.quantity === 'number' ? t.quantity : null,
       isRegional: t.isRegional === true,
+      source: t.source === 'drawing' ? 'drawing' : undefined,
     };
   });
   return rows.length > 0 ? rows : [createTreeRow()];
@@ -73,6 +74,12 @@ interface PlantingContextValue {
   setGrossFloorArea: (value: number | null) => void;
   setSelectedRuleIndex: (index: number | null) => void;
   addTree: () => void;
+  /**
+   * 도면에서 온 수목 행(source='drawing')을 교체한다.
+   * 기존 도면 행은 제거하고 새 도면 행을 넣어 중복 적용을 방지한다.
+   * 수동 입력 행(source 미지정)은 절대 건드리지 않는다.
+   */
+  replaceDrawingTrees: (trees: TreeRow[]) => void;
   removeTree: (id: string) => void;
   updateTree: (id: string, patch: Partial<Omit<TreeRow, 'id'>>) => void;
   /** 수목 목록만 초기화(탭 내 "초기화" 버튼) */
@@ -118,6 +125,12 @@ export function PlantingProvider({ children }: { children: ReactNode }) {
       setGrossFloorArea,
       setSelectedRuleIndex,
       addTree: () => setTrees((prev) => [...prev, createTreeRow()]),
+      replaceDrawingTrees: (newTrees) =>
+        setTrees((prev) => {
+          const manual = prev.filter((t) => t.source !== 'drawing');
+          const next = [...manual, ...newTrees];
+          return next.length > 0 ? next : [createTreeRow()];
+        }),
       removeTree: (id) =>
         setTrees((prev) => (prev.length <= 1 ? prev : prev.filter((t) => t.id !== id))),
       updateTree: (id, patch) =>

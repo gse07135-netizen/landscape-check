@@ -6,6 +6,7 @@ import {
   LEAF_TYPES,
 } from '@/types/planting';
 import { cn } from '@/lib/cn';
+import { SourceTag } from '@/components/ui/SourceTag';
 
 interface TreeInputTableProps {
   trees: TreeRow[];
@@ -46,6 +47,11 @@ export function TreeInputTable({ trees, canRemove, onUpdate, onRemove }: TreeInp
                   onChange={(e) => onUpdate(t.id, { speciesName: e.target.value })}
                   className={cellInput}
                 />
+                {t.source === 'drawing' && (
+                  <div className="mt-1">
+                    <SourceTag />
+                  </div>
+                )}
               </td>
               <td className="py-2 pr-2">
                 <select

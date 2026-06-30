@@ -1,6 +1,6 @@
 import { cn } from '@/lib/cn';
 
-export type TabKey = 'basic' | 'eco' | 'planting' | 'report';
+export type TabKey = 'basic' | 'eco' | 'planting' | 'drawing' | 'report';
 
 export interface TabItem {
   key: TabKey;
@@ -11,6 +11,7 @@ export const TABS: readonly TabItem[] = [
   { key: 'basic', label: '기본정보' },
   { key: 'eco', label: '생태면적률' },
   { key: 'planting', label: '식재 법규' },
+  { key: 'drawing', label: '도면 분석' },
   { key: 'report', label: '리포트' },
 ] as const;
 

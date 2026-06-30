@@ -1,5 +1,6 @@
 import type { EcoStandard, SpaceType } from '@/schemas/ecoAreaRatio.schema';
 import type { EcoRow } from '@/types/eco';
+import type { RowSource } from '@/types/common';
 
 /**
  * 생태면적률 계산 엔진 (순수 함수).
@@ -29,6 +30,8 @@ export interface EcoRowResult {
   weightUnconfirmed: boolean;
   /** 검증되지 않은 공간유형(verified === false) 여부 → "⚠ 검증 필요" */
   unverified: boolean;
+  /** 행 출처(표시용 패스스루) */
+  source?: RowSource;
 }
 
 /** 전체 계산 결과 */
@@ -106,6 +109,7 @@ export function calculateEcoAreaRatio(
       convertedArea,
       weightUnconfirmed,
       unverified,
+      source: row.source,
     };
   });
 

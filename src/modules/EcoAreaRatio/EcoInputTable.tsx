@@ -3,6 +3,7 @@ import type { EcoRowResult } from '@/lib/ecoCalc';
 import type { EcoRow } from '@/types/eco';
 import { formatArea, formatWeight } from '@/lib/format';
 import { cn } from '@/lib/cn';
+import { SourceTag } from '@/components/ui/SourceTag';
 
 interface EcoInputTableProps {
   /** 계산된 행 결과(입력값 + 가중치/환산면적 포함) */
@@ -59,8 +60,13 @@ export function EcoInputTable({
                       </option>
                     ))}
                   </select>
-                  {r.unverified && (
-                    <p className="mt-1 text-xs font-medium text-pending-strong">⚠ 검증 필요</p>
+                  {(r.source === 'drawing' || r.unverified) && (
+                    <div className="mt-1 flex items-center gap-1.5">
+                      {r.source === 'drawing' && <SourceTag />}
+                      {r.unverified && (
+                        <span className="text-xs font-medium text-pending-strong">⚠ 검증 필요</span>
+                      )}
+                    </div>
                   )}
                 </td>
 

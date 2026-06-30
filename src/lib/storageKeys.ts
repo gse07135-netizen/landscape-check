@@ -7,4 +7,5 @@ export const STORAGE_KEYS = {
   plantingGrossFloorArea: 'landscape-check:planting.grossFloorArea:v1',
   plantingSelectedRuleIndex: 'landscape-check:planting.selectedRuleIndex:v1',
   plantingTrees: 'landscape-check:planting.trees:v1',
+  drawing: 'landscape-check:drawing:v1',
 } as const;
